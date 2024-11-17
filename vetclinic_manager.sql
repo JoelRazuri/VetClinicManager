@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `medicament` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `amount` INT NOT NULL,
+  `min_amount` INT NOT NULL,
   `expirate_date` DATE NOT NULL,
   `price` DECIMAL NOT NULL,
   PRIMARY KEY (`id`)
@@ -105,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `supply` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `amount` INT NOT NULL,
+  `min_amount` INT NOT NULL,
   `price` DECIMAL NOT NULL,
   `description` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)
@@ -130,10 +132,10 @@ VALUES
 	(2, 'Chequeo general', '2024-11-19', 150.00, 'Confirmado', 2, 2);
 
 -- Inserción de datos en la tabla 'insumo' --
-INSERT INTO `supply` (`id`, `name`, `amount`, `price`, `description`) 
+INSERT INTO `supply` (`id`, `name`, `amount`, `min_amount`,`price`, `description`) 
 VALUES 
-	(1, 'Guantes quirúrgicos', 100, 25.00, 'Guantes de látex para procedimientos médicos'),
-	(2, 'Jeringas', 50, 15.00, 'Jeringas para administración de medicamentos');
+	(1, 'Guantes quirúrgicos', 100, 10, 25.00, 'Guantes de látex para procedimientos médicos'),
+	(2, 'Jeringas', 50, 25,15.00, 'Jeringas para administración de medicamentos');
 
 -- CONSULTA DE DATOS DE PRUEBA --
 SELECT 
@@ -150,6 +152,15 @@ JOIN
     `pet` p ON ms.`id_pet` = p.`id`
 JOIN 
     `client` c ON p.`id_client` = c.`id`;
+
+SELECT
+    `id` AS 'ID',
+    `name` AS 'Nombre',
+    `amount` AS 'Cantidad',
+    `min_amount` AS 'Cantidad mínima',
+    `price` AS 'Precio',
+    `description` AS 'Descripción'
+FROM `supply`
 
 
 -- BORRADO DE DATOS DE PRUEBA --
