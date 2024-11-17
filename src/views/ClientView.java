@@ -108,13 +108,18 @@ public class ClientView {
         try {
             System.out.print("\nIngrese el ID del cliente a buscar: ");
             int clientId = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             Client client = findClientById(clientId);
             if (client == null) {
                 throw new ClientNotFoundException("Cliente no encontrado.");
             }
-            System.out.println(client);
+            System.out.printf("%-5s %-20s %-15s %-25s\n", "ID", "Nombre", "Teléfono", "Correo Electrónico");
+            System.out.printf("%-5d %-20s %-15s %-25s\n", 
+                              client.getId(), 
+                              client.getName(), 
+                              client.getPhone(), 
+                              client.getEmail());
         } catch (ClientNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -124,7 +129,7 @@ public class ClientView {
         try {
             System.out.print("\nIngrese el ID del cliente a actualizar: ");
             int clientId = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             Client client = findClientById(clientId);
             if (client == null) {
