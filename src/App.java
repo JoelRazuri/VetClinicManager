@@ -2,14 +2,11 @@ import java.util.Scanner;
 import utils.ScreenUtil;
 
 import views.ClientView;
-import controllers.ClientController;
 
 public class App {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        
-        ClientController clientController = new ClientController();
-        ClientView clientView = new ClientView(clientController);
+        ClientView clientView = new ClientView();
 
 
         boolean exit = false;
@@ -28,6 +25,7 @@ public class App {
 
             System.out.println("Por favor dígite la opción:");
             int option = scanner.nextInt();
+            scanner.nextLine();
 
             switch (option) {
                 case 1:
