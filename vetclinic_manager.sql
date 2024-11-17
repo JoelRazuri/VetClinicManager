@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `medical_shift` (
   `reason` VARCHAR(45) NOT NULL,
   `date` DATE NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
+  `status` VARCHAR(20) NOT NULL,
   `id_pet` INT NOT NULL,
   `id_client` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -123,10 +124,10 @@ VALUES
 	(2, 'Mia', 'Gato', 'Siames', 'Hembra', 2, 2);
 
 -- Inserción de datos en la tabla 'turno_medico' --
-INSERT INTO `medical_shift` (`id`, `reason`, `date`, `price`, `id_pet`, `id_client`) 
+INSERT INTO `medical_shift` (`id`, `reason`, `date`, `price`, `status`,`id_pet`, `id_client`) 
 VALUES 
-	(1, 'Vacunación', '2024-11-18', 200.50, 1, 1),
-	(2, 'Chequeo general', '2024-11-19', 150.00, 2, 2);
+	(1, 'Vacunación', '2024-11-18', 200.50, 'Confirmado', 1, 1),
+	(2, 'Chequeo general', '2024-11-19', 150.00, 'Confirmado', 2, 2);
 
 -- Inserción de datos en la tabla 'insumo' --
 INSERT INTO `supply` (`id`, `name`, `amount`, `price`, `description`) 
@@ -141,7 +142,8 @@ SELECT
     p.`name` AS 'Nombre Mascota',
     ms.`reason` AS 'Motivo Turno', 
     ms.`date` AS 'Fecha Turno', 
-    ms.`price` AS 'Precio Turno'
+    ms.`price` AS 'Precio Turno',
+    ms.`status` AS 'Estado'
 FROM 
     `medical_shift` ms
 JOIN 
