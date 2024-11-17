@@ -2,12 +2,15 @@ import java.util.Scanner;
 import utils.ScreenUtil;
 
 import views.ClientView;
+import views.PetView;
+import views.MedicalShiftView;
 
 public class App {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         ClientView clientView = new ClientView();
-
+        PetView petView = new PetView();
+        MedicalShiftView medicalShiftView = new MedicalShiftView();
 
         boolean exit = false;
 
@@ -32,10 +35,10 @@ public class App {
                     clientView.printMenuClients();
                     break;
                 case 2:
-                    // petView.printMenuPets();
+                    petView.printMenuPets();
                     break;
                 case 3:
-                    // medicalShiftView.printMenuMedicalShifts();
+                    medicalShiftView.printMenuMedicalShifts();
                     break;
                 case 4:
                     // medicalShiftView.printMenuMedicalHistories();
