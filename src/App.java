@@ -22,9 +22,7 @@ public class App {
             System.out.println("2. Gestión de Mascotas");
             System.out.println("3. Gestión de Turnos");
             System.out.println("4. Gestión de Historias Clínicas");
-            System.out.println("5. Gestión de Inventario");
-            System.out.println("6. Facturación");
-            System.out.println("7. Salir");
+            System.out.println("5. Salir");
 
             System.out.println("Por favor dígite la opción:");
             int option = scanner.nextInt();
@@ -44,12 +42,6 @@ public class App {
                     // medicalShiftView.printMenuMedicalHistories();
                     break;
                 case 5:
-                    // inventoryView.printMenuInventory();
-                    break;
-                case 6:
-                    // billView.printMenuBill();
-                    break;
-                case 7:
                     exit = true;
                     System.out.println("Saliendo del sistema.");
                     break;
