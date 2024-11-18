@@ -157,7 +157,7 @@ public class ClientView {
         try {
             System.out.print("\nIngrese el ID del cliente a eliminar: ");
             int clientId = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             Client client = findClientById(clientId);
             if (client == null) {

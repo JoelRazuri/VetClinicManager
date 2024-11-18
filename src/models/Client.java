@@ -9,7 +9,6 @@ public class Client {
     protected String phone;
     protected String email;
 
-
     // Constructor
     public Client(String name, String phone, String email) {
         this.id = idCounter++;
