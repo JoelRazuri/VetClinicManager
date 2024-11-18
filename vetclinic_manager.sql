@@ -74,44 +74,6 @@ CREATE TABLE IF NOT EXISTS `medical_history` (
     ON UPDATE NO ACTION
 );
 
--- Tabla 'medicamento' -- 
-CREATE TABLE IF NOT EXISTS `medicament` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `amount` INT NOT NULL,
-  `min_amount` INT NOT NULL,
-  `expirate_date` DATE NOT NULL,
-  `price` DECIMAL NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- Tabla 'factura' -- 
-CREATE TABLE IF NOT EXISTS `bill` (
-  `id` INT NOT NULL,
-  `date` DATE NOT NULL,
-  `total` DECIMAL NOT NULL,
-  `details` VARCHAR(45) NOT NULL,
-  `id_client` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `id_client_idx` (`id_client`),
-  CONSTRAINT `id_client_bill`
-    FOREIGN KEY (`id_client`)
-    REFERENCES `client` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-);
-
--- Tabla 'insumo' -- 
-CREATE TABLE IF NOT EXISTS `supply` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `amount` INT NOT NULL,
-  `min_amount` INT NOT NULL,
-  `price` DECIMAL NOT NULL,
-  `description` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`)
-);
-
 -- INSERCIÓN DE DATOS DE PRUEBA --
 -- Inserción de datos en la tabla 'cliente' --
 INSERT INTO `client` (`id`, `name`, `phone`, `emaill`) 
@@ -131,11 +93,6 @@ VALUES
 	(1, 'Vacunación', '2024-11-18', 200.50, 'Confirmado', 1, 1),
 	(2, 'Chequeo general', '2024-11-19', 150.00, 'Confirmado', 2, 2);
 
--- Inserción de datos en la tabla 'insumo' --
-INSERT INTO `supply` (`id`, `name`, `amount`, `min_amount`,`price`, `description`) 
-VALUES 
-	(1, 'Guantes quirúrgicos', 100, 10, 25.00, 'Guantes de látex para procedimientos médicos'),
-	(2, 'Jeringas', 50, 25,15.00, 'Jeringas para administración de medicamentos');
 
 -- CONSULTA DE DATOS DE PRUEBA --
 SELECT 
@@ -153,15 +110,6 @@ JOIN
 JOIN 
     `client` c ON p.`id_client` = c.`id`;
 
-SELECT
-    `id` AS 'ID',
-    `name` AS 'Nombre',
-    `amount` AS 'Cantidad',
-    `min_amount` AS 'Cantidad mínima',
-    `price` AS 'Precio',
-    `description` AS 'Descripción'
-FROM `supply`
-
 
 -- BORRADO DE DATOS DE PRUEBA --
 -- Desactivar el "safe update mode" --
@@ -169,7 +117,6 @@ SET SQL_SAFE_UPDATES = 0;
 
 DELETE FROM `medical_shift`;
 DELETE FROM `pet`;  
-DELETE FROM `supply`;
 DELETE FROM `client`;
 
 -- Reactivar el "safe update mode" --
@@ -178,7 +125,6 @@ SET SQL_SAFE_UPDATES = 1;
 SELECT * FROM `client`;
 SELECT * FROM `pet`;
 SELECT * FROM `medical_shift`;
-SELECT * FROM `supply`;
 
 
 
