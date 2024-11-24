@@ -76,22 +76,22 @@ CREATE TABLE IF NOT EXISTS `medical_history` (
 
 -- INSERCIÓN DE DATOS DE PRUEBA --
 -- Inserción de datos en la tabla 'cliente' --
-INSERT INTO `client` (`id`, `name`, `phone`, `emaill`) 
+INSERT INTO `client` (`name`, `phone`, `email`) 
 VALUES 
-	(1, 'Juan Pérez', '1234567890', 'juan.perez@email.com'),
-	(2, 'María López', '0987654321', 'maria.lopez@email.com');
+	('Juan Pérez', '1234567890', 'juan.perez@email.com'),
+	('María López', '0987654321', 'maria.lopez@email.com');
 
 -- Inserción de datos en la tabla 'mascota' --
-INSERT INTO `pet` (`id`, `name`, `species`, `race`, `gender`, `age`, `id_client`) 
+INSERT INTO `pet` (`name`, `species`, `race`, `gender`, `age`, `id_client`) 
 VALUES 
-	(1, 'Bobby', 'Perro', 'Labrador', 'Macho', 3, 1),
-	(2, 'Mia', 'Gato', 'Siames', 'Hembra', 2, 2);
+	('Bobby', 'Perro', 'Labrador', 'Macho', 3, 1),
+	('Mia', 'Gato', 'Siames', 'Hembra', 2, 2);
 
 -- Inserción de datos en la tabla 'turno_medico' --
-INSERT INTO `medical_shift` (`id`, `reason`, `date`, `price`, `status`,`id_pet`, `id_client`) 
+INSERT INTO `medical_shift` (`reason`, `date`, `price`, `status`,`id_pet`, `id_client`) 
 VALUES 
-	(1, 'Vacunación', '2024-11-18', 200.50, 'Confirmado', 1, 1),
-	(2, 'Chequeo general', '2024-11-19', 150.00, 'Confirmado', 2, 2);
+	('Vacunación', '2024-11-18', 200.50, 'Confirmado', 1, 1),
+	('Chequeo general', '2024-11-19', 150.00, 'Confirmado', 2, 2);
 
 
 -- CONSULTA DE DATOS DE PRUEBA --
