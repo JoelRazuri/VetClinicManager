@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `phone` VARCHAR(32) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `emaill_UNIQUE` (`emaill`)
+  UNIQUE INDEX `email_UNIQUE` (`email`)
 );
 
 -- Tabla 'mascota' -- 
