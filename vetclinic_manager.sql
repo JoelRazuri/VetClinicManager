@@ -7,17 +7,17 @@ USE vetclinic_manager;
 -- CREACIÓN DE TABLAS --
 -- Tabla 'cliente' --
 CREATE TABLE IF NOT EXISTS `client` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `phone` VARCHAR(32) NOT NULL,
-  `emaill` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `emaill_UNIQUE` (`emaill`)
 );
 
 -- Tabla 'mascota' -- 
 CREATE TABLE IF NOT EXISTS `pet` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `species` VARCHAR(32) NOT NULL,
   `race` VARCHAR(45) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
 
 -- Tabla 'turno_medico' -- 
 CREATE TABLE IF NOT EXISTS `medical_shift` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `reason` VARCHAR(45) NOT NULL,
   `date` DATE NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `medical_shift` (
 
 -- Tabla 'historial_medico' -- 
 CREATE TABLE IF NOT EXISTS `medical_history` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
   `description` VARCHAR(45) NOT NULL,
   `treatment` VARCHAR(45) NOT NULL,
